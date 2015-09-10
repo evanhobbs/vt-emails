@@ -1,0 +1,17 @@
+{
+  "name": "vt-emails",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "email-templates": "^2.0.1",
+    "gulp-watch": "^4.3.5",
+    "node-sass": "^3.3.2"
+  }
+}
