@@ -1,0 +1,67 @@
+<%- include('../../include/header') %>
+
+<%
+	var commentMap = { audio: 'Listen to', text: 'Read', video: 'Watch' }
+%>
+
+
+
+<table class="main">
+	<tr><td class="cell-header">
+		<img src="http://voicethread.com/image/voicethreadtext.png" alt="">
+	</td></tr>
+
+	<tr><td class="wrapper"><table><tr><td>
+
+		<div class="content-block">
+			<strong>Howdy Steve</strong><br/>
+			People have been busy since you have last been to this thread. Tap on a contributor to find out what they shared!
+		</div>
+		<hr>
+		<div class="content-block">
+			<% comments.forEach(function(comment) { %>
+				<table class="new-comment">
+					<tr>
+						<td class="avatar-cont">
+							<a href="">
+								<img style="display: block;" src="<%= comment.avatarUrl %>" alt="">
+							</a>
+						</td>
+						<td class="meta-cont">
+							<a href="" class="muted-link">
+								<div class="comment-title">
+									<%= comment.type === 'audio' ? 'Listen to '+comment.name : ''   %>
+									<%= comment.type === 'video' ? 'Watch '+comment.name  : '' %>
+									<%= comment.type === 'text' ? 'Read '+comment.name + '\'s comment'  : '' %>
+								</div>
+							</a>
+							<div class="comment-subtitle">on <strong><%= title %></strong> at <%= comment.creation %></div>
+						</td>
+					</tr>
+				</table>
+
+
+			<% }) %>
+		</div>
+	<hr>
+
+	<div class="align-center" style="margin-bottom: 10px;">
+		<a style="color: red;" class="small" href="">Stop sending me emails about this conversation</a>
+	</div>
+	<div class="align-center">
+		<a class="small" href="">Adjust my account notification preferences</a>
+	</div>
+
+	</td></tr></table></td></tr>
+
+	<tr><td class="cell-footer">
+		<img style="width: 25px; margin-bottom: 0;" src="http://voicethread.com/image/vt-logo-transparent-matte.png" alt="">
+		<div class="small-muted">
+			© 2015 VoiceThread, LLC. All rights reserved.<br />
+			VoiceThread, LLC. P.O. Box 970533, Boca Raton, FL 33497-0533
+		</div>
+	</td></tr>
+
+</table>
+
+<%- include('../../include/footer', { email: email }) %>

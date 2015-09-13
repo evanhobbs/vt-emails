@@ -34,6 +34,7 @@
   margin-bottom: 0;
 }
 
+
 // Preheader text is displayed in certain clients as a preview but not shown when the user opens the email
 .preheader {
   color: transparent;
@@ -46,4 +47,12 @@
   mso-hide: all;
   visibility: hidden;
   width: 0;
+}
+
+a {
+  color: $gray;
+}
+
+a.small {
+  font-size: 12px;
 }

@@ -1,0 +1,35 @@
+@import "../../css/scss/main";
+
+.new-comment {
+	border: 1px solid #CCC;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	table-layout: fixed;
+	border-radius: 5px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	td {
+		&.avatar-cont {
+			width: 75px;
+			img {
+				border-radius: 5px;
+				border: 1px solid #CCC;
+			}
+		}
+		&.meta-cont {
+			vertical-align: middle;
+		}
+		// vertical-align: middle;
+		.comment-title {
+			font-size: 16px;
+			margin: 5px 0 0;
+		}
+		.comment-subtitle {
+			font-size: 12px;
+			margin-bottom: 0;
+		}
+		
+	}
+}
+
