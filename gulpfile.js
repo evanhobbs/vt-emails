@@ -7,7 +7,10 @@ var fs = require('fs');
 var ejs = require('ejs');
 var templatesDir = path.join(__dirname, 'templates');
 var distDir = path.join(__dirname, 'preview', 'dist');
+var sendmail = require('gulp-mailgun');
+var minimist = require('minimist');
 
+var args = minimist( process.argv.slice(2) );
 
 function startServer() {
 	return connect.server({ 
@@ -30,8 +33,8 @@ function getDirContents(srcpath, type) {
 
 function renderEmail(name, data) {
 	data = data || {};
-	// var templateDir = path.join(__dirname, 'templates', name);
-	// var distDir = path.join(__dirname, 'dist');
+	// var inkCss = fs.readFileSync('css/ink.css', { encoding: 'utf8'});
+	// console.log(inkCss)
 	var email = new EmailTemplate(templatesDir + '/' + name, {
 		juiceOptions: {
 			preserveMediaQueries: true,
@@ -85,4 +88,15 @@ gulp.task('dev', function() {
 		createPreview();
 		gulp.src('preview/index.html').pipe(connect.reload())
 	})
+});
+
+gulp.task('sendmail', function () {
+	renderAll();
+  gulp.src( 'preview/dist/'+args.email+'.html') // Modify this to select the HTML file(s)
+  .pipe(sendmail({
+    key: 'key-0112db83ab5a478350ed86394c666007', // Enter your Mailgun API key here
+    sender: 'test@vt.com',
+    recipient: args.to || 'evanhobbs@gmail.com',
+    subject: 'This is a test email'
+  }));
 });

@@ -1,15 +1,21 @@
 @import "../../css/scss/main";
 
 .new-comment {
-	border: 1px solid #CCC;
+	width: 100%;
+	background-color: white;
 	margin-bottom: 5px;
-	border-radius: 5px;
 	table-layout: fixed;
 	border-radius: 5px;
+	border-collapse: collapse;
+	border-radius: 3px;
+	border-style: hidden; /* hide standard table (collapsed) border */
+	box-shadow: 0 0 0 1px #CCC; /* this draws the table border  */ 
 	&:last-child {
 		margin-bottom: 0;
 	}
 	td {
+		padding-bottom: 0;
+		padding: 3px;
 		&.avatar-cont {
 			width: 75px;
 			img {
@@ -33,3 +39,6 @@
 	}
 }
 
+.notification-link {
+	margin: 5px 0 10px;;
+}
